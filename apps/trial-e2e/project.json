@@ -1,0 +1,28 @@
+{
+  "root": "apps/trial-e2e",
+  "sourceRoot": "apps/trial-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/trial-e2e/cypress.json",
+        "devServerTarget": "trial:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "trial:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/trial-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["trial"]
+}

@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  trial: &trial_config
+    build:
+      context: ./
+      dockerfile: docker/trial/Dockerfile
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./apps/trial:/app/apps/trial
+      - ./libs:/app/libs
